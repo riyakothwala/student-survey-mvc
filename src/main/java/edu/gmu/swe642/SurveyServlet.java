@@ -13,18 +13,18 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class SurveyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private StudentDao StudentDao;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SurveyServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public void init() {
+		StudentDao=new StudentDao();
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
+	 *      
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -37,12 +37,31 @@ public class SurveyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String name = request.getParameter("name").trim();
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.print("<h2>Hello " + name + "</h2>");
-		out.close();
+		
+		String studentid = request.getParameter("studentid").trim();
+		String username = request.getParameter("name").trim();
+		String address = request.getParameter("address").trim();
+		String city = request.getParameter("city").trim();
+		String states = request.getParameter("state").trim();
+		
+		StudentBean StudentBean=new StudentBean();
+		StudentBean.setStudentId(studentid);
+		StudentBean.setUserName(username);
+		StudentBean.setAddress(address);
+		StudentBean.setCity(city);
+		StudentBean.setStates(states);
+		
+		try {
+            int no= StudentDao.insertStudent(StudentBean);
+            PrintWriter out = response.getWriter();
+            out.println("<html><body><b>Successfully Inserted"+ no +"row"
+                        + "</b></body></html>");
+            
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		/* response.sendRedirect("StudentJsp.jsp"); */
 	}
 
 }
