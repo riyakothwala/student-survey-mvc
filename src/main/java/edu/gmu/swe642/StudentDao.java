@@ -20,7 +20,7 @@ public class StudentDao {
 
 			// Step 2:Create a statement using connection object
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into students1 values(?, ?, ?, ?, ?)");
+					.prepareStatement("insert into students values(?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, student.getStudentId());
 			preparedStatement.setString(2, student.getUserName());
 			preparedStatement.setString(3, student.getAddress());
