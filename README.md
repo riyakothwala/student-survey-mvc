@@ -6,17 +6,19 @@ Then, connect to GMU VPN and use the instructions located here: https://labs.vse
 to find your gmu oracle password and connect to your GMU oracle database.
 
 Once connected, create a table named "students" in sqldeveloper,the DDL is below.
-DDL for the students table is:  CREATE TABLE STUDENTS(
-                                StudentId varchar(12),
-                                UserName varchar(255),
-                                Address varchar(255),
-                                City varchar(25),
-                                States varchar(25),
-                                PRIMARY KEY (StudentId)
-                                );
-Note: Rightnow, I have just added the 5 columns but will add the remaining columns later.
+DDL for the students table is:
+```
+CREATE TABLE STUDENTS(
+	StudentId varchar(12),
+	UserName varchar(255),
+	Address varchar(255),
+	City varchar(25),
+	States varchar(25),
+	PRIMARY KEY (StudentId)
+);
+```
+Note: Right now, I have just added the 5 columns but will add the remaining columns later.
 now, you are all set with the database.
 
-Second, In project's StudentDao file add your gmu oracle credentials in username and pwd variable to connect to the database make sure you are in the GMU VPN.
-
-                              
+Second, update *\student-survey-mvc\src\main\resources\db-config.properties* file with your GMU Oracle credentials to connect to the database.
+Also make sure you are connected to the GMU VPN.
