@@ -1,5 +1,7 @@
 package edu.gmu.swe642;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,13 +10,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class StudentDao {
 
-	private final String url = "jdbc:oracle:thin:@artemis.vsnet.gmu.edu:1521/vse18c.vsnet.gmu.edu";
-	// Enter your GMU Oracle credentials here.
-	private final String userid = "<user-name>";
-	private final String pwd = "<password>";
+	private static String URL;
+	private static String USER_NAME;
+	private static String PASSWORD;
+
+	static {
+		try (InputStream input = StudentDao.class.getClassLoader().getResourceAsStream("db-config.properties")) {
+
+			Properties prop = new Properties();
+
+			// load a properties file
+			prop.load(input);
+
+			URL = prop.getProperty("db.url");
+			USER_NAME = prop.getProperty("db.user");
+			PASSWORD = prop.getProperty("db.password");
+
+		} catch (IOException ex) {
+			// TODO: handle scenario when failed to read file
+			ex.printStackTrace();
+		}
+	}
 
 	/**
 	 * TODO:
@@ -28,7 +48,7 @@ public class StudentDao {
 		int result = 0;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection(url, userid, pwd);
+			Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 
 			// Insert student data into database
 			PreparedStatement preparedStatement = connection
@@ -53,25 +73,19 @@ public class StudentDao {
 	 * @return
 	 * @throws ClassNotFoundException
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List getStudent() throws ClassNotFoundException {
-		List dataList = new ArrayList();
+	public List<String> getAllStudentIds() throws ClassNotFoundException {
+		List<String> studentIdList = new ArrayList<String>();
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection(url, userid, pwd);
+			Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 
 			// Retrieve all student records
 			Statement s = connection.createStatement();
 			s.executeQuery("select * from students");
 			ResultSet rs = s.getResultSet();
 			while (rs.next()) {
-
 				// Add records into data list
-				dataList.add(rs.getString("StudentId"));
-				dataList.add(rs.getString("UserName"));
-				dataList.add(rs.getString("Address"));
-				dataList.add(rs.getString("City"));
-				dataList.add(rs.getString("States"));
+				studentIdList.add(rs.getString("StudentId"));
 			}
 			rs.close();
 
@@ -81,6 +95,6 @@ public class StudentDao {
 			e.printStackTrace();
 		}
 
-		return dataList;
+		return studentIdList;
 	}
 }

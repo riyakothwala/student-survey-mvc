@@ -63,23 +63,28 @@ public class SurveyServlet extends HttpServlet {
 			// DataProcessor processor = new DataProcessor();
 
 			// TODO: assign calculated mean value from processor.
-			double mean = 80; // hard coded for now
+			double mean = 95; // hard coded for now
+
+			// Retrieving student data from database
+			List datalist = studentDao.getAllStudentIds();
+			// Set student data in the request
+			request.setAttribute("data", datalist);
+			// TODO: Pass mean and SD to JSPs with request
+
+			String nextPage = null;
 
 			// Forward request to appropriate JSP page
 			if (mean < 90) {
-				@SuppressWarnings("rawtypes")
-				// Retrieving student data from database
-				List datalist = studentDao.getStudent();
-				// Set student data in the request
-				request.setAttribute("data", datalist);
-				// Now, forward request to JSP
-				RequestDispatcher rd = request.getRequestDispatcher("SimpleAcknowledgement.jsp");
-				rd.forward(request, response);
+				// Set next page to be simple ack JSP
+				nextPage = "SimpleAcknowledgement.jsp";
 			} else {
-				// TODO: complete this section later
-				RequestDispatcher rd = request.getRequestDispatcher("WinnerAcknowledgement.jsp");
-				rd.forward(request, response);
+				// Set next page to be winner ack JSP
+				nextPage = "WinnerAcknowledgement.jsp";
 			}
+
+			// Now, forward request to next JSP page
+			RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+			rd.forward(request, response);
 
 		} catch (Exception e) {
 			// TODO: handle all exceptions

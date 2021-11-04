@@ -7,6 +7,37 @@
 <title>Winner Acknowledgement</title>
 </head>
 <body>
-	<h1>Winner Acknowledgement</h1>
+	<h1>Thank you for Completing the form.</h1>
+	<h2 style="color: red;">You are the raffle winner of two movie
+		tickets</h2>
+	<%@page import="java.util.List"%>
+	<%--Importing all the dependent classes--%>
+	<%@page import="edu.gmu.swe642.StudentDao"%>
+	<%@page import="java.util.Iterator"%>
+
+	<%
+	List data = (List) request.getAttribute("data");
+	%>
+	<table>
+		<tr>
+			<th>Student ID</th>
+		</tr>
+		<%
+		// Iterating through subjectList
+
+		if (request.getAttribute("data") != null) // Null check for the object
+		{
+			Iterator iterator = data.iterator(); // Iterator interface
+			while (iterator.hasNext()) // iterate through all the data until the last record
+			{
+		%>
+		<tr>
+			<td><a href="/"><%=iterator.next()%></a></td>
+		</tr>
+		<%
+		}
+		}
+		%>
+	</table>
 </body>
 </html>
