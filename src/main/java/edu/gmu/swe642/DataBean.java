@@ -2,7 +2,7 @@ package edu.gmu.swe642;
 
 public class DataBean {
     private Double mean;
-    private Double standardDev;
+    private String standardDev;
 
 	public Double getMean() {
 		return mean;
@@ -12,11 +12,11 @@ public class DataBean {
 		this.mean = mean;
 	}
 
-    public Double getStandardDev() {
+    public String getStandardDev() {
         return standardDev;
     }
 
-    public void setStandardDev(Double standardDev) {
+    public void setStandardDev(String standardDev) {
         this.standardDev = standardDev;
     }
 }

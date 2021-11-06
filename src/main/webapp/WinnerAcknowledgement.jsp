@@ -17,7 +17,11 @@
 
 	<%
 	List data = (List) request.getAttribute("data");
+	String standardDev = (String) request.getAttribute("standardDev");
+	Double mean = (Double) request.getAttribute("mean");
 	%>
+	<h2>Mean: <%=mean%></h2>
+	<h2>Standard Deviation: <%=standardDev%></h2>
 	<table>
 		<tr>
 			<th>Student ID</th>
