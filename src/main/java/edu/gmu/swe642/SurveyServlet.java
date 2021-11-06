@@ -45,6 +45,7 @@ public class SurveyServlet extends HttpServlet {
 		String address = request.getParameter("address").trim();
 		String city = request.getParameter("city").trim();
 		String states = request.getParameter("state").trim();
+		String[] inputNumbers = request.getParameter("data").split(",");
 
 		StudentBean studentBean = new StudentBean();
 		studentBean.setStudentId(studentid);
@@ -58,18 +59,22 @@ public class SurveyServlet extends HttpServlet {
 			// 1) uses the studentDAO to store the student data to DB
 			studentDao.insertStudent(studentBean);
 
-			// TODO: 2)calls a method on DataProcessor to compute mean and standard
-			// deviation
-			// DataProcessor processor = new DataProcessor();
+			// 2)calls a method on DataProcessor to compute mean and standard deviation
 
-			// TODO: assign calculated mean value from processor.
-			double mean = 95; // hard coded for now
+			DataProcessor processor = new DataProcessor();
+			DataBean dataBean = processor.computeMeanAndDeviation(inputNumbers);
+
+			// assign calculated mean value from processor.
+			Double mean = dataBean.getMean();
+			String standardDev = dataBean.getStandardDev();
 
 			// Retrieving student data from database
 			List datalist = studentDao.getAllStudentIds();
-			// Set student data in the request
+			
+			// Set student data, mean, and standard deviation in the request
 			request.setAttribute("data", datalist);
-			// TODO: Pass mean and SD to JSPs with request
+			request.setAttribute("mean", mean);
+			request.setAttribute("standardDev", standardDev);
 
 			String nextPage = null;
 

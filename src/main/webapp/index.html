@@ -46,7 +46,7 @@
 		<div>
 			<strong>Zip code:</strong> <input id="zip" name="Zip " type="text "
 				size="25 " placeholder="zip-code" onblur='validateZip( this.value )' />
-			<span id="validateZip" class="invalidzip"></span>
+			<!-- <span id="validateZip" class="invalidzip"></span> -->
 
 		</div>
 		<div>
@@ -144,9 +144,10 @@
 		</div>
 
 		<div style="padding-bottom: 20px;">
-			<strong> Data: </strong> <input onfocusout="doCalculations()"
-				id="data" class="w3-text" type="text" name="data" /> <span
-				id="dataerrors" class="invalidzip"></span>
+			<!-- onfocusout="doCalculations()" -->
+			<strong> Data: (ten comma separated numbers)</strong> 
+			<input id="data" class="w3-text" type="text" name="data" /> 
+			<!-- <span id="dataerrors" class="invalidzip"></span> -->
 		</div>
 
 		<!-- <div style="padding-bottom: 20px;">

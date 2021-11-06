@@ -1,4 +1,4 @@
-# 642 HW3 Andrea Howes, Riya Modi, Cici Well
+# 642 HW3 Andrea Howes, Riya Modi, Janice Lee
 
 #Database Setup
 First, install SQL Developer GUI using this link: https://www.oracle.com/tools/downloads/sqldev-downloads.html
@@ -22,3 +22,6 @@ now, you are all set with the database.
 
 Second, update *\student-survey-mvc\src\main\resources\db-config.properties* file with your GMU Oracle credentials to connect to the database.
 Also make sure you are connected to the GMU VPN.
+
+
+# Individual contributions:
