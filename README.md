@@ -14,6 +14,18 @@ CREATE TABLE STUDENTS(
 	Address varchar(255),
 	City varchar(25),
 	States varchar(25),
+	Zip varchar(25),
+	Telephone varchar(25),
+	Email varchar(25),
+	Url varchar(25),
+	Campus varchar(25),
+	Interested varchar(25),
+	Notes varchar(25),
+	GradMonth varchar(25),
+	GradYear varchar(25),
+	Recommend varchar(25),
+	Data varchar(25),
+	SurveyDate varchar(25),
 	PRIMARY KEY (StudentId)
 );
 ```

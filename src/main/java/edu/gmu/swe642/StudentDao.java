@@ -52,12 +52,25 @@ public class StudentDao {
 
 			// Insert student data into database
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into students values(?, ?, ?, ?, ?)");
+					.prepareStatement("insert into students (STUDENTID, USERNAME, ADDRESS, CITY, STATES, ZIP, TELEPHONE, EMAIL, URL, CAMPUSLIKES, INTERESTED, NOTES, GRADMONTH, GRADYEAR, RECOMMEND, DATA, SURVEYDATE) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, student.getStudentId());
 			preparedStatement.setString(2, student.getUserName());
 			preparedStatement.setString(3, student.getAddress());
 			preparedStatement.setString(4, student.getCity());
 			preparedStatement.setString(5, student.getStates());
+
+			preparedStatement.setString(6, student.getZip());
+			preparedStatement.setString(7, student.getTelephone());
+			preparedStatement.setString(8, student.getEmail());
+			preparedStatement.setString(9, student.getUrl());
+			preparedStatement.setString(10, student.getcampuslikes());
+			preparedStatement.setString(11, student.getInterested());
+			preparedStatement.setString(12, student.getnotes());
+			preparedStatement.setString(13, student.getGradmonth());
+			preparedStatement.setString(14, student.getgradyear());
+			preparedStatement.setString(15, student.getRecommend());
+			preparedStatement.setString(16, student.getData());
+			preparedStatement.setString(17, student.getSurveydate());
 
 			result = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -119,6 +132,20 @@ public class StudentDao {
 				studentBean.setAddress(rs.getString("address"));
 				studentBean.setCity(rs.getString("city"));
 				studentBean.setStates(rs.getString("states"));
+
+				studentBean.setZip(rs.getString("zip"));
+				studentBean.setTelephone(rs.getString("telephone"));
+				studentBean.setEmail(rs.getString("email"));
+				studentBean.setUrl(rs.getString("url"));
+				studentBean.setcampuslikes(rs.getString("campuslikes"));
+				studentBean.setInterested(rs.getString("interested"));
+				studentBean.setnotes(rs.getString("notes"));
+				studentBean.setGradmonth(rs.getString("gradmonth"));
+				studentBean.setGradyear(rs.getString("gradyear"));
+				studentBean.setRecommend(rs.getString("recommend"));
+				studentBean.setData(rs.getString("data"));
+				studentBean.setSurveydate(rs.getString("surveydate"));
+
 				System.out.println("studnet is si: " + studentBean.toString());
 
 			}

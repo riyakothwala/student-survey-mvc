@@ -14,6 +14,19 @@
     String address =  (String) request.getAttribute("address");
     String city =  (String) request.getAttribute("city");
     String state = (String) request.getAttribute("state");
+
+    String zip = (String) request.getAttribute("zip");
+    String telephone = (String) request.getAttribute("telephone");
+    String email = (String) request.getAttribute("email");
+    String url = (String) request.getAttribute("url");
+    String campuslikes = (String) request.getAttribute("campuslikes");
+    String interested = (String) request.getAttribute("interested");
+    String notes = (String) request.getAttribute("notes");
+    String gradmonth = (String) request.getAttribute("gradmonth");
+    String gradyear = (String) request.getAttribute("gradyear");
+    String recommend = (String) request.getAttribute("recommend");
+    String data = (String) request.getAttribute("data");
+    String surveydate = (String) request.getAttribute("surveydate");
     %>
 	<div style="text-align: right; font-style: italic;">Riya Modi</div>
 	<div class="w3-large">
@@ -47,45 +60,41 @@
 
 		</div>
 		<div>
-			<!-- <strong>Zip code:</strong> <input readonly id="zip" name="Zip " type="text "
-				size="25 " placeholder="zip-code" onblur='validateZip( this.value )' /> -->
-			<!-- <span id="validateZip" class="invalidzip"></span> -->
-
+			<strong>Zip code:</strong> <input readonly id="zip" name="zip" type="text"
+				size="25 " placeholder="zip-code" value=<%=zip%>>
 		</div>
 		<div>
 			<strong>Telephone number:<span class="required ">*</span></strong> <input readonly
-				type="tel " id="phone " name="phone "
-				placeholder="(###)-(###)-(####) " />
+				type="tel " id="telephone" name="telephone" value=<%=telephone%>>
 
 		</div>
 		<div>
 			<strong>Email:<span class="required ">*</span></strong> <input readonly
-				id="email" name="email " type="email " size="25 "
-				placeholder="name@domain.com " />
+				id="email" name="email " type="email " size="25" value=<%=email%>>
 		</div>
 		<div>
 			<strong>URL:</strong> <input name="url " type="url " size="25 " readonly
-				placeholder="https://www.name.com " />
+            value=<%=url%> />
 		</div>
 		<div>
 			<strong>Date:<span class="required ">*</span></strong> <input readonly
-				name="date " type="date " size="25 " placeholder="mm-dd-yyyy " />
+				name="surveydate" type="date " size="25 " value=<%=surveydate%> />
 		</div>
 
 		<!-- checkboxes -->
 		<p>
-			<strong>What you liked most about the campus:</strong><br /> <label><input
-				class="w3-check " name="thingsliked " type="checkbox"
-				value="students " /> Students </label><br /> <label><input
-				class="w3-check " name="thingsliked " type="checkbox"
-				value="location " /> Location </label><br /> <label> <input
-				class="w3-check " name="thingsliked " type="checkbox"
+			<strong>What you liked most about the campus:</strong><br /> <label><input readonly
+				class="w3-check " name="campuslikes" type="checkbox"
+				value="students " /> Students </label><br /> <label><input readonly
+				class="w3-check " name="campuslikes" type="checkbox"
+				value="location " /> Location </label><br /> <label> <input readonly
+				class="w3-check " name="campuslikes" type="checkbox"
 				value="campus " /> Campus
-			</label><br /> <label><input class="w3-check " name="thingsliked "
-				type="checkbox" value="atmosphere " /> Atmosphere </label><br /> <label><input
-				class="w3-check " name="thingsliked " type="checkbox"
-				value="Dorm rooms " /> Dorm rooms </label><br /> <label><input
-				class="w3-check " name="thingsliked " type="checkbox"
+			</label><br /> <label><input class="w3-check " name="campuslikes"
+				type="checkbox" value="atmosphere " /> Atmosphere </label><br /> <label><input readonly
+				class="w3-check " name="campuslikes" type="checkbox"
+				value="Dorm rooms " /> Dorm rooms </label><br /> <label><input readonly
+				class="w3-check " name="campuslikes" type="checkbox"
 				value="sports " /> Sports </label>
 		</p>
 
@@ -93,31 +102,31 @@
 		<p>
 			<strong>How they became interested in the university:</strong><br />
 
-			<label> <input id="radiobutton" class="w3-radio "
-				name="interested " type="radio" value="friends " /> Friends
-			</label><br /> <label><input id="radiobutton1" class="w3-radio "
-				name="interested " type="radio" value="television " /> Television </label><br />
+			<label> <input readonly id="radiobutton" class="w3-radio "
+				name="interested" type="radio" value="friends " /> Friends
+			</label><br /> <label><input readonly id="radiobutton1" class="w3-radio "
+				name="interested" type="radio" value="television " /> Television </label><br />
 
-			<label><input id="radiobutton2" class="w3-radio "
-				name="interested " type="radio" value="internet " /> Internet </label><br />
+			<label><input id="radiobutton2" readonly class="w3-radio "
+				name="interested" type="radio" value="internet " /> Internet </label><br />
 
-			<label><input id="radiobutton3" class="w3-radio "
-				name="interested " type="radio" value="other " /> Other </label><br />
+			<label><input id="radiobutton3" readonly class="w3-radio "
+				name="interested" type="radio" value="other " /> Other </label><br />
 		</p>
 
 		<!-- comment box -->
 		<div>
 			<strong>Comments: </strong></br>
-			<textarea readonly class=" w3-text " class="w3-textarea " name="comments "
-				rows="5 " cols="40 " placeholder="notes "></textarea>
+			<textarea readonly class=" w3-text " class="w3-textarea " name="notes"
+				rows="5 " cols="40 " value=<%=notes%>></textarea>
 		</div>
 
 		<!-- graduation month and year  -->
 		<div style="padding-bottom: 20px;">
 			<strong for="browser ">High-school garduation:<span
-				class="required ">*</span></strong> <input list="months " name="month "
-				id="month " placeholder="select month ">
-			<datalist id="months ">
+				class="required ">*</span></strong> <input readonly list="months" name="gradmonth"
+				id="gradmonth" value=<%=gradmonth%>>
+			<datalist id="months">
 				<option value="January "></option>
 				<option value="February "></option>
 				<option value="March "></option>
@@ -132,14 +141,14 @@
 				<option value="December "></option>
 			</datalist>
 			<input style="margin-left: 10px;" class=" " type="text " name="year "
-				placeholder="year " />
+            value=<%=gradyear%> />
 		</div>
 
 		<!-- School recommendation  -->
 		<div style="padding-bottom: 20px;">
 			<strong> Recommend this school to other:<span
 				class="required ">*</span>
-			</strong> <select name="recommend" id="recommend">
+			</strong> <select readonly name="recommend" id="recommend" value=<%=recommend%>>
 				<option value="Very Likely">Very Likely</option>
 				<option value="Likely">Likely</option>
 				<option value="Unlikely">Unlikely</option>
@@ -147,10 +156,8 @@
 		</div>
 
 		<div style="padding-bottom: 20px;">
-			<!-- onfocusout="doCalculations()" -->
 			<strong> Data: (ten comma separated numbers)</strong> 
-			<input readonly id="data" class="w3-text" type="text" name="data" /> 
-			<!-- <span id="dataerrors" class="invalidzip"></span> -->
+			<input readonly id="data" class="w3-text" type="text" name="data" value=<%=data%>/> 
 		</div>
 
 		<!-- <div style="padding-bottom: 20px;">

@@ -40,6 +40,19 @@ public class SurveyServlet extends HttpServlet {
 			request.setAttribute("state", studentBean.getStates());
 			request.setAttribute("city", studentBean.getCity());
 
+			request.setAttribute("zip", studentBean.getZip());
+			request.setAttribute("telephone", studentBean.getTelephone());
+			request.setAttribute("email", studentBean.getEmail());
+			request.setAttribute("url", studentBean.getUrl());
+			request.setAttribute("campuslikes", studentBean.getcampuslikes());
+			request.setAttribute("interested", studentBean.getInterested());
+			request.setAttribute("notes", studentBean.getnotes());
+			request.setAttribute("gradmonth", studentBean.getGradmonth());
+			request.setAttribute("gradyear", studentBean.getgradyear());
+			request.setAttribute("recommend", studentBean.getRecommend());
+			request.setAttribute("data", studentBean.getData());
+			request.setAttribute("surveydate", studentBean.getSurveydate ());
+
 			nextPage = "Student.jsp";
 		} catch (Exception e) {
 			// TODO: handle all exceptions
@@ -59,10 +72,24 @@ public class SurveyServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String studentid = request.getParameter("studentid").trim();
-		String username = request.getParameter("name").trim();
+		String username = request.getParameter("username").trim();
 		String address = request.getParameter("address").trim();
 		String city = request.getParameter("city").trim();
 		String states = request.getParameter("state").trim();
+		
+		String zip = request.getParameter("zip").trim();
+		String telephone = request.getParameter("telephone").trim();
+		String email = request.getParameter("email").trim();
+		String url = request.getParameter("url").trim();
+		String campuslikes = request.getParameter("campuslikes").trim();
+		String interested = request.getParameter("interested").trim();
+		String notes = request.getParameter("notes").trim();
+		String gradmonth = request.getParameter("gradmonth").trim();
+		String gradyear = request.getParameter("gradyear").trim();
+		String recommend = request.getParameter("recommend").trim();
+		String data = request.getParameter("data").trim();
+		String surveydate = request.getParameter("surveydate").trim();
+
 		String[] inputNumbers = request.getParameter("data").split(",");
 
 		StudentBean studentBean = new StudentBean();
@@ -71,6 +98,20 @@ public class SurveyServlet extends HttpServlet {
 		studentBean.setAddress(address);
 		studentBean.setCity(city);
 		studentBean.setStates(states);
+
+		studentBean.setZip(zip);
+		studentBean.setTelephone(telephone);
+		studentBean.setEmail(email);
+		studentBean.setUrl(url);
+		studentBean.setcampuslikes(campuslikes);
+		studentBean.setInterested(interested);
+		studentBean.setnotes(notes);
+		studentBean.setGradmonth(gradmonth);
+		studentBean.setGradyear(gradyear);
+		studentBean.setRecommend(recommend);
+		studentBean.setData(data);
+		studentBean.setSurveydate(surveydate);
+
 
 		try {
 
