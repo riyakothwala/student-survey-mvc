@@ -5,67 +5,70 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="survey.css">
 <link rel="stylesheet" href="./department.css">
-<title>Student Form</title>
+<title>Student Form (already filled in)</title>
 </head>
 <body>
+    <%
+    String studentId = (String) request.getAttribute("studentid");
+    String username = (String) request.getAttribute("username");
+    String address =  (String) request.getAttribute("address");
+    String city =  (String) request.getAttribute("city");
+    String state = (String) request.getAttribute("state");
+    %>
 	<div style="text-align: right; font-style: italic;">Riya Modi</div>
-	<!-- computer science header -->
 	<div class="w3-large">
 		<h1>Computer Science Department</h1>
 	</div>
 
-	<!-- Survey form header -->
-	<h5 class="survey-form">Survey Form</h5>
-	<form action="processForm" method="post" id="form"
-		class=" w3-container w3-light-grey w3-text-black " autocomplete="on">
+	<h5 class="survey-form">Survey Form (previously filled in)</h5>
+	<form  id="form" class=" w3-container w3-light-grey w3-text-black " >
 		<div id="error"></div>
 		<div>
 			<strong>StudentId: <span class="required">*</span>
-			</strong> <input id="studentid" class="w3-text " name="studentid" autofocus
-				type="text " size="25 " placeholder="student id " />
+			</strong> <input readonly id="studentid" class="w3-text " name="studentid" autofocus
+				type="text " size="25 " value=<%=studentId%> />
 		</div>
 		<div>
 			<strong>Username: <span class="required">*</span>
-			</strong> <input id="username" class="w3-text " name="name" autofocus
-				type="text " size="25 " placeholder="username " />
+			</strong> <input readonly id="username" class="w3-text " name="name" autofocus
+				type="text " size="25 " placeholder="username " value=<%=username%>>
 		</div>
 		<div>
 			<strong>Street address:</strong><br />
-			<textarea id="address" name="address" rows="5 " cols="40 "
-				placeholder="address"></textarea>
+			<textarea readonly id="address" name="address" rows="5" cols="40"
+				placeholder="address" value=<%=address%>></textarea>
 		</div>
 		<div>
-			<strong>City:</strong> <input name="city" type="text " size="25 "
-				placeholder="city " />
+			<strong>City:</strong> <input readonly name="city" type="text" size="25" value=<%=city%>>
 		</div>
 		<div>
-			<strong>State:</strong> <input name="state" type="text " size="25 "
-				placeholder="state " />
+			<strong>State:</strong> <input readonly name="state" type="text" size="25"
+				placeholder="state " value=<%=state%>>
 
 		</div>
 		<div>
-			<strong>Zip code:</strong> <input id="zip" name="Zip " type="text "
-				size="25 " placeholder="zip-code" onblur='validateZip( this.value )' />
+			<!-- <strong>Zip code:</strong> <input readonly id="zip" name="Zip " type="text "
+				size="25 " placeholder="zip-code" onblur='validateZip( this.value )' /> -->
 			<!-- <span id="validateZip" class="invalidzip"></span> -->
 
 		</div>
 		<div>
-			<strong>Telephone number:<span class="required ">*</span></strong> <input
+			<strong>Telephone number:<span class="required ">*</span></strong> <input readonly
 				type="tel " id="phone " name="phone "
 				placeholder="(###)-(###)-(####) " />
 
 		</div>
 		<div>
-			<strong>Email:<span class="required ">*</span></strong> <input
+			<strong>Email:<span class="required ">*</span></strong> <input readonly
 				id="email" name="email " type="email " size="25 "
 				placeholder="name@domain.com " />
 		</div>
 		<div>
-			<strong>URL:</strong> <input name="url " type="url " size="25 "
+			<strong>URL:</strong> <input name="url " type="url " size="25 " readonly
 				placeholder="https://www.name.com " />
 		</div>
 		<div>
-			<strong>Date:<span class="required ">*</span></strong> <input
+			<strong>Date:<span class="required ">*</span></strong> <input readonly
 				name="date " type="date " size="25 " placeholder="mm-dd-yyyy " />
 		</div>
 
@@ -105,7 +108,7 @@
 		<!-- comment box -->
 		<div>
 			<strong>Comments: </strong></br>
-			<textarea class=" w3-text " class="w3-textarea " name="comments "
+			<textarea readonly class=" w3-text " class="w3-textarea " name="comments "
 				rows="5 " cols="40 " placeholder="notes "></textarea>
 		</div>
 
@@ -146,7 +149,7 @@
 		<div style="padding-bottom: 20px;">
 			<!-- onfocusout="doCalculations()" -->
 			<strong> Data: (ten comma separated numbers)</strong> 
-			<input id="data" class="w3-text" type="text" name="data" /> 
+			<input readonly id="data" class="w3-text" type="text" name="data" /> 
 			<!-- <span id="dataerrors" class="invalidzip"></span> -->
 		</div>
 

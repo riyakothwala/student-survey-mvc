@@ -97,4 +97,39 @@ public class StudentDao {
 
 		return studentIdList;
 	}
+
+	public StudentBean getStudentById(String studentId) throws ClassNotFoundException {
+		StudentBean studentBean = new StudentBean();
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+
+			
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from students WHERE STUDENTID = ? AND ROWNUM = 1");
+			preparedStatement.setString(1, studentId);
+			preparedStatement.executeQuery();
+		
+
+			ResultSet rs = preparedStatement.getResultSet();
+			while (rs.next()) {
+				//setting student bean from return
+				studentBean.setStudentId(studentId);
+				studentBean.setUserName(rs.getString("username"));
+				studentBean.setAddress(rs.getString("address"));
+				studentBean.setCity(rs.getString("city"));
+				studentBean.setStates(rs.getString("states"));
+				System.out.println("studnet is si: " + studentBean.toString());
+
+			}
+			preparedStatement.close();
+			rs.close();
+
+		} catch (SQLException e) {
+			// TODO: handle sql exception
+			e.printStackTrace();
+		}
+
+		return studentBean;
+	}
 }

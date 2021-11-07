@@ -30,7 +30,25 @@ public class SurveyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doPost(request, response);
+		String studentId = request.getParameter("studentid").trim();
+		String nextPage = null;
+		try {
+			StudentBean studentBean = studentDao.getStudentById(studentId);
+			request.setAttribute("studentid", studentId);
+			request.setAttribute("username", studentBean.getUserName());
+			request.setAttribute("address", studentBean.getAddress());
+			request.setAttribute("state", studentBean.getStates());
+			request.setAttribute("city", studentBean.getCity());
+
+			nextPage = "Student.jsp";
+		} catch (Exception e) {
+			// TODO: handle all exceptions
+			nextPage = "NoSuchStudent.jsp";
+			e.printStackTrace();
+		}
+		// Now, forward request to next JSP page
+		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+		rd.forward(request, response);
 	}
 
 	/**
@@ -96,4 +114,5 @@ public class SurveyServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+
 }
