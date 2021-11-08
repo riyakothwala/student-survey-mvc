@@ -118,7 +118,7 @@
 		<div>
 			<strong>Comments: </strong></br>
 			<textarea readonly class=" w3-text " class="w3-textarea " name="notes"
-				rows="5 " cols="40 " value=<%=notes%>></textarea>
+				rows="5 " cols="40 "><%=notes%></textarea>
 		</div>
 
 		<!-- graduation month and year  -->

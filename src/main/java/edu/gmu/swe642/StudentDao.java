@@ -146,7 +146,6 @@ public class StudentDao {
 				studentBean.setData(rs.getString("data"));
 				studentBean.setSurveydate(rs.getString("surveydate"));
 
-				System.out.println("studnet is si: " + studentBean.toString());
 
 			}
 			preparedStatement.close();
