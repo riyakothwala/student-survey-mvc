@@ -49,7 +49,7 @@
 		<div>
 			<strong>Street address:</strong><br />
 			<textarea readonly id="address" name="address" rows="5" cols="40"
-				placeholder="address" value=<%=address%>></textarea>
+				placeholder="address"><%=address%></textarea>
 		</div>
 		<div>
 			<strong>City:</strong> <input readonly name="city" type="text" size="25" value=<%=city%>>
@@ -83,7 +83,10 @@
 
 		<!-- checkboxes -->
 		<p>
-			<strong>What you liked most about the campus:</strong><br /> <label><input readonly
+			<strong>What you liked most about the campus:</strong><br /> <label>
+				<input readonly
+				id="campuslikes" name="campuslikes " type="text" size="25" value="<%=campuslikes%>"">
+				<!-- <input readonly
 				class="w3-check " name="campuslikes" type="checkbox"
 				value="students " /> Students </label><br /> <label><input readonly
 				class="w3-check " name="campuslikes" type="checkbox"
@@ -95,14 +98,14 @@
 				class="w3-check " name="campuslikes" type="checkbox"
 				value="Dorm rooms " /> Dorm rooms </label><br /> <label><input readonly
 				class="w3-check " name="campuslikes" type="checkbox"
-				value="sports " /> Sports </label>
+				value="sports " /> Sports </label> -->
 		</p>
 
 		<!-- radio buttons  -->
 		<p>
 			<strong>How they became interested in the university:</strong><br />
-
-			<label> <input readonly id="radiobutton" class="w3-radio "
+			<input readonly id="interested" name="interested" type="text" size="25" value=<%=interested%>>
+			<!-- <label> <input readonly id="radiobutton" class="w3-radio "
 				name="interested" type="radio" value="friends " /> Friends
 			</label><br /> <label><input readonly id="radiobutton1" class="w3-radio "
 				name="interested" type="radio" value="television " /> Television </label><br />
@@ -111,7 +114,7 @@
 				name="interested" type="radio" value="internet " /> Internet </label><br />
 
 			<label><input id="radiobutton3" readonly class="w3-radio "
-				name="interested" type="radio" value="other " /> Other </label><br />
+				name="interested" type="radio" value="other " /> Other </label><br /> -->
 		</p>
 
 		<!-- comment box -->
@@ -148,16 +151,17 @@
 		<div style="padding-bottom: 20px;">
 			<strong> Recommend this school to other:<span
 				class="required ">*</span>
-			</strong> <select readonly name="recommend" id="recommend" value=<%=recommend%>>
+				<input readonly id="recommend" name="recommend" type="text" size="25" value=<%=recommend%>>
+			<!-- </strong> <select readonly name="recommend" id="recommend" value=<%=recommend%>>
 				<option value="Very Likely">Very Likely</option>
 				<option value="Likely">Likely</option>
 				<option value="Unlikely">Unlikely</option>
-			</select>
+			</select> -->
 		</div>
 
 		<div style="padding-bottom: 20px;">
 			<strong> Data: (ten comma separated numbers)</strong> 
-			<input readonly id="data" class="w3-text" type="text" name="data" value=<%=data%>/> 
+			<input readonly id="data" class="w3-text" type="text" name="data" value="<%=data%>"/> 
 		</div>
 
 		<!-- <div style="padding-bottom: 20px;">
