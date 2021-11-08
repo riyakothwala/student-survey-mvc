@@ -13,7 +13,7 @@
 	<h1>Thank you for filling out the form</h1>
 	<%@page import="java.util.List"%>
 	<%--Importing all the dependent classes--%>
-	<%@page import="edu.gmu.swe642.StudentDao"%>
+	<%@page import="edu.gmu.swe642.StudentDAOImpl"%>
 	<%@page import="java.util.Iterator"%>
 
 	<%

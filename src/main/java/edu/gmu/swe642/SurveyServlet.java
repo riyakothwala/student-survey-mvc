@@ -15,13 +15,13 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SurveyServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private StudentDao studentDao;
+	private StudentDAO studentDao;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public void init() {
-		studentDao = new StudentDao();
+		studentDao = new StudentDAOImpl();
 	}
 
 	/**
