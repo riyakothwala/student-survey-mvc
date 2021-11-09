@@ -43,11 +43,11 @@
 		</div>
 		<div>
 			<strong>Username: <span class="required">*</span>
-			</strong> <input readonly id="username" class="w3-text " name="name" autofocus
+			</strong> <input readonly id="username" class="w3-text " name="name"
 				type="text " size="25 " placeholder="username " value=<%=username%>>
 		</div>
 		<div>
-			<strong>Street address:</strong><br />
+			<strong>Street address:<span class="required">*</span></strong><br />
 			<textarea readonly id="address" name="address" rows="5" cols="40"
 				placeholder="address"><%=address%></textarea>
 		</div>
@@ -64,7 +64,7 @@
 				size="25 " placeholder="zip-code" value=<%=zip%>>
 		</div>
 		<div>
-			<strong>Telephone number:<span class="required ">*</span></strong> <input readonly
+			<strong>Telephone number:<input readonly
 				type="tel " id="telephone" name="telephone" value=<%=telephone%>>
 
 		</div>
@@ -83,7 +83,7 @@
 
 		<!-- checkboxes -->
 		<p>
-			<strong>What you liked most about the campus:</strong><br /> <label>
+			<strong>What you liked most about the campus:<span class="required">*</span></strong><br /> <label>
 				<input readonly
 				id="campuslikes" name="campuslikes " type="text" size="25" value="<%=campuslikes%>"">
 				<!-- <input readonly
@@ -103,7 +103,7 @@
 
 		<!-- radio buttons  -->
 		<p>
-			<strong>How they became interested in the university:</strong><br />
+			<strong>How they became interested in the university:<span class="required">*</span></strong><br />
 			<input readonly id="interested" name="interested" type="text" size="25" value=<%=interested%>>
 			<!-- <label> <input readonly id="radiobutton" class="w3-radio "
 				name="interested" type="radio" value="friends " /> Friends
@@ -126,8 +126,7 @@
 
 		<!-- graduation month and year  -->
 		<div style="padding-bottom: 20px;">
-			<strong for="browser ">High-school garduation:<span
-				class="required ">*</span></strong> <input readonly list="months" name="gradmonth"
+			<strong for="browser ">High-school garduation: <input readonly list="months" name="gradmonth"
 				id="gradmonth" value=<%=gradmonth%>>
 			<datalist id="months">
 				<option value="January "></option>
@@ -149,8 +148,7 @@
 
 		<!-- School recommendation  -->
 		<div style="padding-bottom: 20px;">
-			<strong> Recommend this school to other:<span
-				class="required ">*</span>
+			<strong> Recommend this school to other:
 				<input readonly id="recommend" name="recommend" type="text" size="25" value=<%=recommend%>>
 			<!-- </strong> <select readonly name="recommend" id="recommend" value=<%=recommend%>>
 				<option value="Very Likely">Very Likely</option>
@@ -160,7 +158,7 @@
 		</div>
 
 		<div style="padding-bottom: 20px;">
-			<strong> Data: (ten comma separated numbers)</strong> 
+			<strong> Data: (ten comma separated numbers)<span class="required">*</span></strong> 
 			<input readonly id="data" class="w3-text" type="text" name="data" value="<%=data%>"/> 
 		</div>
 

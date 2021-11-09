@@ -35,9 +35,7 @@ public class SurveyServlet extends HttpServlet {
 		try {
 			StudentBean studentBean = studentDao.getStudentById(studentId);
 
-			if (studentBean != null) {
-				nextPage = "StudentIdAlreadyExist.jsp";
-			} else {
+			if (studentBean.getStudentId() != null) {
 				request.setAttribute("studentid", studentId);
 				request.setAttribute("username", studentBean.getUserName());
 				request.setAttribute("address", studentBean.getAddress());
@@ -58,16 +56,18 @@ public class SurveyServlet extends HttpServlet {
 				request.setAttribute("surveydate", studentBean.getSurveydate());
 
 				nextPage = "Student.jsp";
+			} else {
+				nextPage = "NoSuchStudent.jsp";
 			}
+			RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+			rd.forward(request, response);
 
 		} catch (Exception e) {
 			// TODO: handle all exceptions
-			nextPage = "NoSuchStudent.jsp";
 			e.printStackTrace();
 		}
 		// Now, forward request to next JSP page
-		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
-		rd.forward(request, response);
+		
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class SurveyServlet extends HttpServlet {
 		try {
 			String studentid = request.getParameter("studentid").trim();
 			studentBean = studentDao.getStudentById(studentid);
-			if (studentBean != null) {
+			if (studentBean.getStudentId() != null) {
 				nextPage = "StudentIdAlreadyExist.jsp";
 			} else {
 				String username = request.getParameter("username").trim();

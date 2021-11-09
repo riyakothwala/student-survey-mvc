@@ -90,9 +90,10 @@ public class StudentDAOImpl implements StudentDAO {
 	@Override
 	public List<String> getAllStudentIds() throws ClassNotFoundException {
 		List<String> studentIdList = new ArrayList<String>();
-		try {
+
+		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 
 			// Retrieve all student records
 			Statement s = connection.createStatement();
@@ -117,10 +118,9 @@ public class StudentDAOImpl implements StudentDAO {
 	public StudentBean getStudentById(String studentId) throws ClassNotFoundException {
 		StudentBean studentBean = new StudentBean();
 
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
 
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			PreparedStatement preparedStatement = connection.prepareStatement("select * from students WHERE STUDENTID = ? AND ROWNUM = 1");
 			preparedStatement.setString(1, studentId);

@@ -104,7 +104,7 @@
 								count++;
 							}
 							if(isDataValid()){
-								errorMessage += "<li>Enter at least 10 number in data field separated by comma.</li>";
+								errorMessage += "<li>Enter at least 10 numbers between 1 and 100 in data field separated by comma.</li>";
 							}
 							// Show modal dialog if validation fails.
 							if (count > 0) {
@@ -135,9 +135,9 @@
 		</div>
 		<div>
 			<strong>StudentId: <span class="required">* </span>
-			</strong> <input id="studentid" class="w3-text " name="studentid" autofocus
-				type="text " size="25 " placeholder="student id " /> <br><span
-				long</span>
+			</strong> 
+			<input id="studentid" class="w3-text " name="studentid" autofocus
+				type="text " size="25 " placeholder="student id " /> <br>
 		</div>
 		<div>
 			<strong>Username: <span class="required">*</span>
@@ -228,8 +228,9 @@
 
 		<!-- graduation month and year  -->
 		<div style="padding-bottom: 20px;">
-			<strong for="browser ">High-school garduation:</strong> <input list="months" name="gradmonth"
-				id="gradmonth" placeholder="select month">
+			<strong for="browser ">High-school garduation:</strong> <input
+				list="months" name="gradmonth" id="gradmonth"
+				placeholder="select month">
 			<datalist id="months">
 				<option value="January"></option>
 				<option value="February"></option>
@@ -250,8 +251,8 @@
 
 		<!-- School recommendation  -->
 		<div style="padding-bottom: 20px;">
-			<strong> Recommend this school to other:
-			</strong> <select name="recommend" id="recommend">
+			<strong> Recommend this school to other: </strong> <select
+				name="recommend" id="recommend">
 				<option value="Very Likely">Very Likely</option>
 				<option value="Likely">Likely</option>
 				<option value="Unlikely">Unlikely</option>
@@ -285,7 +286,7 @@
 
 		</div>
 
-		
+
 
 
 	</form>
