@@ -18,7 +18,7 @@ CREATE TABLE STUDENTS(
 	Telephone varchar(25),
 	Email varchar(25),
 	Url varchar(25),
-	Campus varchar(25),
+	Campuslikes varchar(25),
 	Interested varchar(25),
 	Notes varchar(25),
 	GradMonth varchar(25),
