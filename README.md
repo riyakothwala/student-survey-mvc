@@ -24,7 +24,7 @@ CREATE TABLE STUDENTS(
 	GradMonth varchar(25),
 	GradYear varchar(25),
 	Recommend varchar(25),
-	Data varchar(25),
+	Data varchar(100),
 	SurveyDate varchar(25),
 	PRIMARY KEY (StudentId)
 );
