@@ -36,7 +36,14 @@
 			{
 		%>
 		<tr>
-			<td><a href="/"><%=iterator.next()%></a></td>
+			<td>
+				<form action="processForm" method="get" >
+					<input readonly id="studentid" name="studentid" value="<%=iterator.next()%>">
+					 <button id="submit" type="submit">
+						Go to completed form
+					</button> 
+				</form>
+			</td>
 		</tr>
 		<%
 		}
