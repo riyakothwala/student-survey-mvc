@@ -18,7 +18,7 @@ CREATE TABLE STUDENTS(
 	Telephone varchar(25),
 	Email varchar(25),
 	Url varchar(25),
-	Campuslikes varchar(25),
+	Campuslikes varchar(100),
 	Interested varchar(25),
 	Notes varchar(25),
 	GradMonth varchar(25),
@@ -28,13 +28,16 @@ CREATE TABLE STUDENTS(
 	SurveyDate varchar(25),
 	PRIMARY KEY (StudentId)
 );
-```
-Note: Right now, I have just added the 5 columns but will add the remaining columns later.
-now, you are all set with the database.
 
 Second, update *\student-survey-mvc\src\main\resources\db-config.properties* file with your GMU Oracle credentials to connect to the database.
 Also make sure you are connected to the GMU VPN.
 
 
 # Individual contributions:
-Andrea Howes: Created the DataBean and dataProcessor class. And made the student.jsp, and get method on servlet. 
+
+Andrea Howes: Created the DataBean and dataProcessor class. And made the student.jsp, NosuchStudent.jsp, SimpleAcknowledgement.jsp and SurveyServlet(get method). 
+
+Riya Modi: Created the maven project with intial setup and also created the SurveyServlet(post method),StudentBean, StudentDAO(Interface),StudentDAOImpl(Implementation of interface),StudentAlreadyExist.jsp and  winnerAcknowledgement.jsp.
+
+
+
