@@ -37,3 +37,4 @@ Also make sure you are connected to the GMU VPN.
 
 
 # Individual contributions:
+Andrea Howes: Created the DataBean and dataProcessor class. And made the student.jsp, and get method on servlet. 
