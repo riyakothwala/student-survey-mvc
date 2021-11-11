@@ -1,4 +1,4 @@
-# 642 HW3 Andrea Howes, Riya Modi, Janice Lee
+# 642 HW3 Andrea Howes, Riya Modi
 
 #Database Setup
 First, install SQL Developer GUI using this link: https://www.oracle.com/tools/downloads/sqldev-downloads.html
