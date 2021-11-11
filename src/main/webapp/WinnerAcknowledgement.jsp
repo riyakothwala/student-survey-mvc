@@ -1,3 +1,5 @@
+<!-- @author Riya & Andrea -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -20,8 +22,12 @@
 	String standardDev = (String) request.getAttribute("standardDev");
 	Double mean = (Double) request.getAttribute("mean");
 	%>
-	<h2>Mean: <%=mean%></h2>
-	<h2>Standard Deviation: <%=standardDev%></h2>
+	<h2>
+		Mean:
+		<%=mean%></h2>
+	<h2>
+		Standard Deviation:
+		<%=standardDev%></h2>
 	<table>
 		<tr>
 			<th>Student ID</th>
@@ -37,11 +43,10 @@
 		%>
 		<tr>
 			<td>
-				<form action="processForm" method="get" >
-					<input readonly id="studentid" name="studentid" value="<%=iterator.next()%>">
-					 <button id="submit" type="submit">
-						Go to completed form
-					</button> 
+				<form action="processForm" method="get">
+					<input readonly id="studentid" name="studentid"
+						value="<%=iterator.next()%>">
+					<button id="submit" type="submit">Go to completed form</button>
 				</form>
 			</td>
 		</tr>

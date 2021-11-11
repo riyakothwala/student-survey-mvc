@@ -2,26 +2,37 @@ package edu.gmu.swe642;
 
 import java.util.List;
 
+/**
+ * The DAO interface to access the database and perform the operations.
+ * 
+ * @author Riya & Andrea
+ */
 public interface StudentDAO {
 
 	/**
-	 * TODO:
+	 * Inserts student survey data into table.
 	 * 
 	 * @param student
 	 * @return
 	 * @throws ClassNotFoundException
 	 */
-	// TODO: handle duplicate key scenario
 	int insertStudent(StudentBean student) throws ClassNotFoundException;
 
 	/**
-	 * TODO:
+	 * Get all student IDs.
 	 * 
 	 * @return
 	 * @throws ClassNotFoundException
 	 */
 	List<String> getAllStudentIds() throws ClassNotFoundException;
 
+	/**
+	 * Get student by ID.
+	 * 
+	 * @param studentId
+	 * @return
+	 * @throws ClassNotFoundException
+	 */
 	StudentBean getStudentById(String studentId) throws ClassNotFoundException;
 
 }

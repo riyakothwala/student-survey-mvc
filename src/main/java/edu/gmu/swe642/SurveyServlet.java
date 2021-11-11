@@ -10,7 +10,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SurveyServlet
+ * Servlet implementation class SurveyServlet that is front contoller to the
+ * app.
+ * 
+ * @author Riya & Andrea
  */
 public class SurveyServlet extends HttpServlet {
 
@@ -67,7 +70,7 @@ public class SurveyServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		// Now, forward request to next JSP page
-		
+
 	}
 
 	/**

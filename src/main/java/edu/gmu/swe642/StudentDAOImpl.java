@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * The DAO implementation to access the database and perform the operations.
+ * 
+ * @author Riya & Andrea
+ */
 public class StudentDAOImpl implements StudentDAO {
 
 	private static String URL;
@@ -36,14 +41,6 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 	}
 
-	/**
-	 * TODO:
-	 * 
-	 * @param student
-	 * @return
-	 * @throws ClassNotFoundException
-	 */
-	// TODO: handle duplicate key scenario
 	@Override
 	public int insertStudent(StudentBean student) throws ClassNotFoundException {
 		int result = 0;
@@ -52,8 +49,8 @@ public class StudentDAOImpl implements StudentDAO {
 			Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 
 			// Insert student data into database
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into students (STUDENTID, USERNAME, ADDRESS, CITY, STATES, ZIP, TELEPHONE, EMAIL, URL, CAMPUSLIKES, INTERESTED, NOTES, GRADMONTH, GRADYEAR, RECOMMEND, DATA, SURVEYDATE) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"insert into students (STUDENTID, USERNAME, ADDRESS, CITY, STATES, ZIP, TELEPHONE, EMAIL, URL, CAMPUSLIKES, INTERESTED, NOTES, GRADMONTH, GRADYEAR, RECOMMEND, DATA, SURVEYDATE) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, student.getStudentId());
 			preparedStatement.setString(2, student.getUserName());
 			preparedStatement.setString(3, student.getAddress());
@@ -81,12 +78,6 @@ public class StudentDAOImpl implements StudentDAO {
 		return result;
 	}
 
-	/**
-	 * TODO:
-	 * 
-	 * @return
-	 * @throws ClassNotFoundException
-	 */
 	@Override
 	public List<String> getAllStudentIds() throws ClassNotFoundException {
 		List<String> studentIdList = new ArrayList<String>();
@@ -121,15 +112,15 @@ public class StudentDAOImpl implements StudentDAO {
 		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			PreparedStatement preparedStatement = connection.prepareStatement("select * from students WHERE STUDENTID = ? AND ROWNUM = 1");
+
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from students WHERE STUDENTID = ? AND ROWNUM = 1");
 			preparedStatement.setString(1, studentId);
 			preparedStatement.executeQuery();
-		
 
 			ResultSet rs = preparedStatement.getResultSet();
 			while (rs.next()) {
-				//setting student bean from return
+				// setting student bean from return
 				studentBean.setStudentId(studentId);
 				studentBean.setUserName(rs.getString("username"));
 				studentBean.setAddress(rs.getString("address"));
@@ -148,7 +139,6 @@ public class StudentDAOImpl implements StudentDAO {
 				studentBean.setRecommend(rs.getString("recommend"));
 				studentBean.setData(rs.getString("data"));
 				studentBean.setSurveydate(rs.getString("surveydate"));
-
 
 			}
 			preparedStatement.close();

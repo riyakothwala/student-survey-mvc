@@ -1,5 +1,10 @@
 package edu.gmu.swe642;
 
+/**
+ * The bean class to store survey form data.
+ * 
+ * @author Riya & Andrea
+ */
 public class StudentBean {
 	private String StudentId;
 	private String UserName;
@@ -83,6 +88,7 @@ public class StudentBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getUrl() {
 		return url;
 	}
@@ -98,6 +104,7 @@ public class StudentBean {
 	public void setcampuslikes(String campuslikes) {
 		this.campuslikes = campuslikes;
 	}
+
 	public String getInterested() {
 		return interested;
 	}
@@ -105,6 +112,7 @@ public class StudentBean {
 	public void setInterested(String interested) {
 		this.interested = interested;
 	}
+
 	public String getnotes() {
 		return notes;
 	}
@@ -120,6 +128,7 @@ public class StudentBean {
 	public void setGradmonth(String gradmonth) {
 		this.gradmonth = gradmonth;
 	}
+
 	public String getgradyear() {
 		return gradyear;
 	}
@@ -135,6 +144,7 @@ public class StudentBean {
 	public void setRecommend(String recommend) {
 		this.recommend = recommend;
 	}
+
 	public String getData() {
 		return data;
 	}
