@@ -44,9 +44,10 @@ public class StudentDAOImpl implements StudentDAO {
 	@Override
 	public int insertStudent(StudentBean student) throws ClassNotFoundException {
 		int result = 0;
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+
+		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);) {
 
 			// Insert student data into database
 			PreparedStatement preparedStatement = connection.prepareStatement(
@@ -82,9 +83,9 @@ public class StudentDAOImpl implements StudentDAO {
 	public List<String> getAllStudentIds() throws ClassNotFoundException {
 		List<String> studentIdList = new ArrayList<String>();
 
-		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
 
 			// Retrieve all student records
 			Statement s = connection.createStatement();
@@ -109,9 +110,9 @@ public class StudentDAOImpl implements StudentDAO {
 	public StudentBean getStudentById(String studentId) throws ClassNotFoundException {
 		StudentBean studentBean = new StudentBean();
 
-		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+		try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
 
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("select * from students WHERE STUDENTID = ? AND ROWNUM = 1");

@@ -89,7 +89,7 @@
 		<p>
 			<strong>What you liked most about the campus:<span
 				class="required">*</span></strong><br /> <label> <input readonly
-				id="campuslikes" name="campuslikes " type="text" size="25"
+				id="campuslikes" name="campuslikes " type="text" size="60"
 				value="<%=campuslikes%>""> <!-- <input readonly
 				class="w3-check " name="campuslikes" type="checkbox"
 				value="students " /> Students </label><br /> <label><input readonly

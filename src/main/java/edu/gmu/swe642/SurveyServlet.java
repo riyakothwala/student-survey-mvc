@@ -97,7 +97,8 @@ public class SurveyServlet extends HttpServlet {
 				String telephone = request.getParameter("telephone").trim();
 				String email = request.getParameter("email").trim();
 				String url = request.getParameter("url").trim();
-				String campuslikes = request.getParameter("campuslikes").trim();
+				String[] campuslikes = request.getParameterValues("campuslikes");
+				// String campuslikes = request.getParameter("campuslikes").trim();
 				String interested = request.getParameter("interested").trim();
 				String notes = request.getParameter("notes").trim();
 				String gradmonth = request.getParameter("gradmonth").trim();
@@ -118,7 +119,7 @@ public class SurveyServlet extends HttpServlet {
 				studentBean.setTelephone(telephone);
 				studentBean.setEmail(email);
 				studentBean.setUrl(url);
-				studentBean.setcampuslikes(campuslikes);
+				studentBean.setcampuslikes(String.join(", ", campuslikes));
 				studentBean.setInterested(interested);
 				studentBean.setnotes(notes);
 				studentBean.setGradmonth(gradmonth);
