@@ -28,6 +28,7 @@ CREATE TABLE STUDENTS(
 	SurveyDate varchar(25),
 	PRIMARY KEY (StudentId)
 );
+```
 
 Second, update *\student-survey-mvc\src\main\resources\db-config.properties* file with your GMU Oracle credentials to connect to the database.
 Also make sure you are connected to the GMU VPN.
@@ -35,9 +36,6 @@ Also make sure you are connected to the GMU VPN.
 
 # Individual contributions:
 
-Andrea Howes: Created the DataBean and dataProcessor class. And made the student.jsp, NosuchStudent.jsp, SimpleAcknowledgement.jsp and SurveyServlet(get method). 
+Andrea Howes: Created the DataBean and dataProcessor class. And made the student.jsp, NosuchStudent.jsp, SimpleAcknowledgement.jsp and SurveyServlet(get method). Made a demo video out of the running application.
 
-Riya Modi: Created the maven project with intial setup and also created the SurveyServlet(post method),StudentBean, StudentDAO(Interface),StudentDAOImpl(Implementation of interface),StudentAlreadyExist.jsp and  winnerAcknowledgement.jsp.
-
-
-
+Riya Modi: Created the skeleton maven project and added the SurveyServlet (post method) along with StudentBean, StudentDAO (Interface), StudentDAOImpl(Implementation of interface), StudentAlreadyExist.jsp and WinnerAcknowledgement.jsp.
